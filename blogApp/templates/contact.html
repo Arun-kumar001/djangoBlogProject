@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iCoder - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+@media only screen and (max-width: 800px) {
+        .manualSt{
+            margin-top: 10px;
+        }
+}
+
+        .iCCont {
+            display: flex;
+        }
+
+        .rightCont {
+            
+            /* border: 1px solid lightslategrey; */
+            /* border-radius: 1vh; */
+            height: 85vh;
+            overflow: auto;
+            scroll-behavior:smooth;
+        }
+        .activePost{
+         justify-content: center;
+        }
+        .leftCont {
+            height: auto;
+            width: 70vw;
+            /* border: 2px solid;
+            border-radius: 1vh; */
+            display: flex;  
+        }
+        .leftContAdjust{
+            margin-top: 8em;
+        }
+        .myCardSet{
+            margin: auto;
+        }
+        .foot{
+            text-align: center;
+            display: grid;
+        }
+        #textareaComment{
+            border: 1px solid rgb(192, 192, 201);
+            border-radius: 7px;
+        }
+        
+        .footi{
+    margin-top: auto;
+    background: red;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.fa:hover {
+  opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.media{
+    display: flex;
+    justify-content: center;
+}
+    </style>
+</head>
+
+<body style="min-height: 100vh;
+display: flex;
+flex-direction: column; ">
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light " href="#">iCoder</a>
+            <button class="navbar-toggler border-light bg-light type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="allpost">All Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="contact">Contact Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <form action="contact" method="post">
+            {% csrf_token %}
+              <div class="mb-3 row">
+                <p style="color:red;" >{{post}}</p>
+                <div class="col-sm-10">
+                  <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <div class="col-sm-10">
+                  <input type="email" name="email" class="form-control" id="inputPassword" placeholder="email@email.com">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <div class="col-sm-10">
+                  <textarea name="textarea" id="textareaComment" style="width: 68vw; max-height: 250px; height: 20vh;" placeholder="   Comment ..."></textarea>
+                </div>
+              </div>
+              <button  type="submit" style="font-size: medium;" class="btn btn-dark btn-lg">Submit</button>
+        </form>
+    </div><hr>
+    <div class="socilaContat">
+        <h4 style="text-align: center;">Social Contact</h4><hr>
+        <div class="media">
+            <a href="https://www.facebook.com/" class="fa fa-facebook" style="background: none; color:#3B5998"></a><br>
+            <a href="https://www.twitter.com" class="fa fa-twitter" style="background: none; color:#3ba7ee"></a><br>
+            <a href="https://www.instagram.com/invites/contact/?i=1hqjl51z26svr&utm_content=p2pey9e" class="fa fa-instagram" style="background: none; color:#e0277d"></a><br>
+            <a href="https://wa.me/qr/N5XHB2FCYTLFI1" class="fa fa-whatsapp" style="background: none; color:#4fc931"></a><br>       
+            <a href="https://open.spotify.com/user/312ynoxhqlkpd4co43quqjffeag4?si=719f00d067914332" class="fa fa-spotify" style="background: none; color:#4fc931"></a><br>       
+            <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjMxdfr_Kz5AhXXl1YBHWXsAw0QFnoECBEQAQ&url=https%3A%2F%2Fmail.google.com%2Fmail%2F&usg=AOvVaw1LdBdmrwYVrMn4NzKd8iI_" class="fa fa-google"></a><br>       
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+</body>
+
+</html>
