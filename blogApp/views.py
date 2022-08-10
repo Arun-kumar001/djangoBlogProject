@@ -48,5 +48,8 @@ def allpost(request):
     }
     return render(request, 'allpost.html',perm )
 
-def bash(request):
-    return render(request, 'bash.html')
+def bash(request, slug):
+    postData = Post.objects.filter(slug=slug).first()
+    print(postData)
+    postDat = {'postD':postData}    
+    return render(request, 'bash.html', postDat)

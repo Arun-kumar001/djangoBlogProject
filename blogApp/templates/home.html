@@ -4,25 +4,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon"
+        href="https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEhLS8rjHamZjE-On89EyOzUMROYQQSjACpKrMiEpHg4zOjbm8urt5G2MvFjN4XKjI_B2ZahvT_OHR0ueGRqaAtQ__LThwEtxD2Yw7PmqkXg2wvSv7YPeOmP2TA02xacxgw2e559Hal_6ISWWCxZxEafQFhpirnX89DvHw/s196/"
+        sizes="196x196">
     <title>iCoder - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
+        @media only screen and (max-width: 800px) {
+            .rightCont {
+                display: none;
+            }
 
-@media only screen and (max-width: 800px) {
-        .rightCont{
-            display: none;
+            .leftContAdjust {
+                margin-top: 0rem;
+            }
+
+            .leftCont {
+                min-width: 90%;
+            }
+
+            .manualSt {
+                margin-top: 10px;
+            }
         }
-        .leftContAdjust{
-            margin-top: 0rem;
-        }
-        .leftCont{
-            min-width:90% ;
-        }
-        .manualSt{
-            margin-top: 10px;
-        }
-}
 
         .iCCont {
             display: flex;
@@ -44,22 +49,24 @@
             width: 70vw;
             /* border: 2px solid;
             border-radius: 1vh; */
-            display: flex;  
+            display: flex;
         }
-        .leftContAdjust{
+
+        .leftContAdjust {
             margin-top: 8em;
         }
-        .myCardSet{
+        .myCardSet {
             margin: auto;
         }
-        .foot{
+        .foot {
             text-align: center;
             display: grid;
         }
-        .comment{
+
+        .comment {
             height: 60vh;
-overflow-y: scroll;
-width: 74vw;
+            overflow-y: scroll;
+            width: 74vw;
         }
     </style>
 </head>
@@ -68,7 +75,7 @@ width: 74vw;
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-light " href="#">iCoder</a>
-            <button class="navbar-toggler border-light bg-light type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler border-light bg-light type=" button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -99,52 +106,55 @@ width: 74vw;
         <div class="leftCont container ">
             <div class="container leftContAdjust">
                 <div class="card d-flex ">
-                    <div class="card-header " >
+                    <div class="card-header ">
                         <h4>{{title}}</h4>
-                        <p style="color:lightslategrey" >{{about}}</p>
+                        <p style="color:lightslategrey">{{about}}</p>
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>{{content}} </p><br>
-                            <footer class="blockquote-footer" style="float:right;">{{author}}<br><cite title="Source Title" style="float:right ;">{{date}}</cite></footer>
+                            <footer class="blockquote-footer" style="float:right;">{{author}}<br><cite
+                                    title="Source Title" style="float:right ;">{{date}}</cite></footer>
                         </blockquote>
                     </div>
                 </div>
                 <div class="postcomments">
                     <form action="home" method="post">
                         {% csrf_token %}
-                          <div class="mb-3 row">
+                        <div class="mb-3 row">
                             <h4 class="mt-1"> <b>Post a Comment</b> </h4>
                             <div class="col-sm-10">
-                                <p style="color:red;" >{{post}}</p>
-                              <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+                                <p style="color:red;">{{post}}</p>
+                                <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
                             </div>
-                          </div>
-                          <div class="mb-3 row">
+                        </div>
+                        <div class="mb-3 row">
                             <div class="col-sm-10">
-                              <input type="email" name="email" class="form-control" id="inputPassword" placeholder="email@email.com">
+                                <input type="email" name="email" class="form-control" id="inputPassword"
+                                    placeholder="email@email.com">
                             </div>
-                          </div>
-                          <div class="mb-3 row">
+                        </div>
+                        <div class="mb-3 row">
                             <div class="col-sm-10">
-                              <textarea name="textarea" id="textareaComment" style=" border: 1px solid #ced4da;
-                              border-radius: 0.5vw;width: 100%; max-height: 250px; height: 20vh;" placeholder="   Comment ..."></textarea>
+                                <textarea name="textarea" id="textareaComment" style=" border: 1px solid #ced4da;
+                              border-radius: 0.5vw;width: 100%; max-height: 250px; height: 20vh;"
+                                    placeholder="   Comment ..."></textarea>
                             </div>
-                          </div>
-                          <button  type="submit" style="font-size: medium;" class="btn btn-dark btn-lg">Post</button>
+                        </div>
+                        <button type="submit" style="font-size: medium;" class="btn btn-dark btn-lg">Post</button>
                     </form>
                 </div>
                 <h4 style="text-align:center;">Comments</h4>
                 <div class=" leftCont comment">
-                    <div class="myCardSet" style="margin:auto;">    
+                    <div class="myCardSet" style="margin:auto;">
                         {% for i in cmt %}
                         <div class="card mt-2" style="max-width:70vw;">
-                            <div class="card-body">                     
-                                <p style="color:lightslategrey" >{{i.name}}</p>
-                                <p style="text-overflow: ellipsis; width:70vw; " class="card-text" >{{i.comm}}</p>
+                            <div class="card-body">
+                                <p style="color:lightslategrey">{{i.name}}</p>
+                                <p style="text-overflow: ellipsis; width:70vw; " class="card-text">{{i.comm}}</p>
                             </div>
                         </div>
-                      {% endfor %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -154,27 +164,28 @@ width: 74vw;
                 {% for i in getPost0 %}
                 <div class="card mt-2" style="width:95%;">
                     <div class="card-body">
-                    
                         <h5 class="card-title" name="post_title">{{i.post_title}}</h5>
-                        <p style="color:lightslategrey" >{{i.post_authorName}}</p>
-                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;" class="card-text" >{{i.post_about}}</p>
-                        <a  href="bash/post_title"  class="btn btn-dark">View Post</a> 
+                        <p style="color:lightslategrey">{{i.post_authorName}}</p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;"
+                            class="card-text">{{i.post_about}}</p>
+                        <a href="bash/{{i.slug}}" class="btn btn-dark">View Post</a>
                     </div>
                 </div>
-              
+
                 {% endfor %}
-                
+
             </div>
         </div>
     </div>
     <div class="foot mt-2">
         <div class="card">
-              <blockquote class="blockquote mb-0">
-                <p style="font-size: medium" >Copyright 2022 by alpha Corporation. All Rights Reserved.</p>
-                <footer class="blockquote-footer"><cite title="Source Title" style="font-size: medium;">Arun Kumar Yadav</cite></footer>
-              </blockquote>
-            
-          </div>
+            <blockquote class="blockquote mb-0">
+                <p style="font-size: medium">Copyright 2022 by alpha Corporation. All Rights Reserved.</p>
+                <footer class="blockquote-footer"><cite title="Source Title" style="font-size: medium;">Arun Kumar
+                        Yadav</cite></footer>
+            </blockquote>
+
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

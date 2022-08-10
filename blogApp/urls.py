@@ -8,5 +8,5 @@ urlpatterns = [
     path('contact', views.contact, name='contact'),
     path('allpost', views.allpost, name='allpost'),
     path('bash', views.bash, name='bash'),
-    path('bash/<str:post_title>', views.bash, name='bash'),
+    path('bash/<str:slug>', views.bash, name='bash'),
 ]

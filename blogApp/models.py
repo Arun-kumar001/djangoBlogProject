@@ -3,8 +3,9 @@ from django.db import models
 
 class Post(models.Model):
     post_SrNo = models.AutoField
-    post_title = models.CharField(max_length=150)
-    post_about = models.CharField(max_length=50)
+    post_title = models.CharField(max_length=80)
+    post_about = models.CharField(max_length=200)
+    slug = models.CharField(max_length=150)
     post_content = models.TextField()
     post_pubDate = models.DateTimeField()
     post_authorName = models.CharField(max_length=50)
